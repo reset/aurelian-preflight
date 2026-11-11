@@ -1,3 +1,91 @@
-__pycache__/
-*.pyc
+# smk { overwrite: true }
+#########################################################################
+#
+#                 -- Generated with smk --
+#      (do not edit unless you know what you're doing)
+#
+#########################################################################
+
+# git automatically ignores the git directory, but ripgrep needs this hint
+.git
+
+# Default output dirs. pkg/ is the root's alone: macOS matches it to any Pkg/, such as smk-cli's Commands/Pkg/.
+tmp/
+out/
+/pkg/
+
+# Environment config
+**/env/.env
+.vscode.env
+
+# Login secrets
+.tokens
+
+# runtime data
+.pid
+*.pid
+
+# Logs. The root's logs/ alone: macOS matches a bare logs to any Logs/, such as buildq's Fixtures/Logs/.
+/logs
+*.log
+
+# What smk proj writes beside a file the repository owns
+*.example
+
+# Nix
+.cache
+.local
+.direnv
+
+# Terraform
+.terraform
+*.tfstate*
+*.tfvars
+*.secrets
+.vagrant
+
+# localstack
+.localstack
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.history/
+.vs/
+.vsconfig
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Emacs
+.#*
+
+# OS created files
 .DS_Store
+Thumbs.db
+
+# Each language's rules follow, one block per language in smkproj.toml's Languages: listing a language adds its
+# block, dropping it removes the block, and neither touches another language's.
+# smk: each language's lines follow
+
+# smk lang: Python
+# Python: bytecode, virtual environments, packaging output, and the caches of ruff and mypy, which smk runs.
+__pycache__/
+*.py[cod]
+.venv/
+[Ss]andbox/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+# smk end
+
+# Everything above is smk's, rewritten on every render. The lines below the next one are this repository's,
+# and every render keeps them; a `!` line there re-includes what smk ignores above.
+# smk: this repository's own lines follow
+*.pyc

@@ -1,0 +1,32 @@
+# smk { overwrite: true }
+#########################################################################
+#
+#                 -- Generated with smk --
+#      (do not edit unless you know what you're doing)
+#
+#########################################################################
+#
+# Rules are selected for defects, not style. pycodestyle and pyflakes catch correctness errors,
+# flake8-simplify catches a file opened without a context manager (a leaked handle), and pylint
+# catches a subprocess.run() whose exit code nobody checks. Rewrite rules such as %-formatting to
+# f-strings are left unselected: they change how working code looks and can introduce the bugs
+# this file exists to catch.
+#
+# The formatter is a separate command and is required: `make check-python` runs both.
+
+line-length = 110
+
+[lint]
+select = ["E", "F", "W", "SIM", "PL"]
+ignore = [
+  # Tools here are linear by design: a file list, a subprocess, a report. Complexity and
+  # statement-count caps push that logic into helpers that exist only to satisfy a counter.
+  "PLR0911",
+  "PLR0912",
+  "PLR0915",
+  "PLR2004",
+  # A function that takes the six values it reports is clearer than one taking a struct
+  # invented for the linter.
+  "PLR0913",
+  "PLR0917",
+]

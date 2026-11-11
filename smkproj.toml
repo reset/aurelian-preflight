@@ -1,0 +1,22 @@
+Name = "aurelian-preflight"
+Description = ""
+Languages = ["Python"]
+MasterBranch = "main"
+BaseDir = "."
+Domain = ""
+UnityProject = ""
+Namespace = ""
+Owner = "reset"
+Repository = "reset/aurelian-preflight"
+TfStateStorageAccount = ""
+SsmPrefix = ""
+BaseDomain = ""
+Features = ["nixshell"]
+Seeded = ["Python", "nixshell"]
+[Ci]
+Provider = ""
+[Ci.Settings]
+[License]
+Kind = "Proprietary"
+Holder = "Jamie Stormbreaker"
+Year = 2026
