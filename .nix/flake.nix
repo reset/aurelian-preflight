@@ -51,7 +51,9 @@
           default = pkgs.mkShell (
             smkShell.env
             // {
-              buildInputs = smkShell.packages;
+              # python3 stays smk's current Python. Python 3.13 sits beside it as python3.13, the newest the
+              # interview's check_environment.py names, for an exercise package with no build for the current one yet.
+              buildInputs = smkShell.packages ++ [ pkgs.python313 ];
             }
           );
         }
